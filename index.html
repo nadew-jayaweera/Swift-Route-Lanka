@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ExploreGo - Travel & Transport</title>
+  <title>Swift Route Lanka</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>ExploreGo</h1>
+    <h1>Swift Route Lanka</h1>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -20,7 +20,7 @@
   </header>
 
   <section id="home">
-    <h2>Welcome to ExploreGo</h2>
+    <h2>Welcome to Swift Route Lanka</h2>
     <p>Your one-stop solution for travel adventures and reliable transport rentals.</p>
   </section>
 
@@ -52,6 +52,7 @@
       <select id="vehicle" name="vehicle">
         <option value="car">Car</option>
         <option value="bike">Motorbike</option>
+        <option value="three wheel">three wheel</option>
         <option value="van">Van</option>
       </select>
 
@@ -65,7 +66,18 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>Email: contact@explorego.com | Phone: +94 712345678</p>
+    <p>Email: swiftroutelanka@gmail.com | Phone: +94 742883594</p>
+    <div class="social-media"></div>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="32" height="32" />
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" width="32" height="32" />
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="32" height="32" />
+      </a>
+    </div>
   </section>
 
   <footer>
@@ -78,11 +90,15 @@
       const days = parseInt(document.getElementById("days").value);
       let rate = 0;
 
-      if (vehicle === "car") rate = 5000;
-      else if (vehicle === "bike") rate = 2000;
-      else if (vehicle === "van") rate = 7000;
+      if (vehicle === "car") rate = 8000;
+      else if (vehicle === "bike") rate = 5000;
+      else if (vehicle === "van") rate = 9000;
+      else if (vehicle === "three wheel") rate = 6000;
 
-      const total = rate * days;
+      let total = rate * days;
+      if (!days || days === 0) {
+        total = 0;
+      }
       document.getElementById("priceDisplay").textContent = `Total Price: Rs. ${total}`;
     }
   </script>
