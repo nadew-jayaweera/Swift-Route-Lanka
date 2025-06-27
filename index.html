@@ -6,6 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swift Route Lanka</title>
   <link rel="stylesheet" href="style.css" />
+  
+  <script>
+    // Card hover effect: show button, hide description
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.card').forEach(function(card) {
+        const desc = card.querySelector('.card-desc');
+        const btn = card.querySelector('.card-btn');
+        if (desc && btn) {
+          card.addEventListener('mouseenter', () => {
+            desc.style.display = 'none';
+            btn.style.display = 'block';
+          });
+          card.addEventListener('mouseleave', () => {
+            desc.style.display = 'block';
+            btn.style.display = 'none';
+          });
+        }
+      });
+    });
+  </script>
+  
 </head>
 
 <body>
@@ -58,9 +79,11 @@
       <div class="card">
         <img src="images/KDH.webp" alt="Ella" />
         <h3>Van</h3>
-        <p><b>Description:</b> Power and luxury combined — ideal for off-road adventures and hilly terrain. <br>
-              <b>Ideal For: </b>For 6–10 passengers, tour groups, and business transport.</p>
+        <p class="card-desc"><b>Description:</b> Power and luxury combined — ideal for off-road adventures and hilly terrain. <br>
+          <b>Ideal For: </b>For 6–10 passengers, tour groups, and business transport.</p>
+        <button class="card-btn" style="display:none;">Book Now</button>
       </div>
+
       <div class="card">
         <img src="images/hilux.jpeg" alt="Arugambay" />
         <h3>Cab</h3>
