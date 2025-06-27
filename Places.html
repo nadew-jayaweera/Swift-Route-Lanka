@@ -1,184 +1,827 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Places - Swift Route Lanka</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .place-card img {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Places - Swift Route Lanka</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .place-card img {
         height: 200px;
         object-fit: cover;
-    }
-    /* Popup styles */
-    .place-popup {
+      }
+      /* Popup styles */
+      .place-popup {
         display: none;
         position: absolute;
         top: 10px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
-        background: rgba(0,0,0,0.85);
+        background: rgba(0, 0, 0, 0.85);
         color: #fff;
         padding: 16px 20px;
         border-radius: 8px;
         min-width: 220px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         pointer-events: none;
         font-size: 1rem;
-    }
-    .place-card {
+      }
+      .place-card {
         position: relative;
         cursor: pointer;
-    }
-    .place-card:hover .place-popup {
+      }
+      .place-card:hover .place-popup {
         display: block;
-    }
-    .cards {
+      }
+      .cards {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
-    }
+      }
 
-    .card {
-      background: #eee;
-      padding: 0.5rem;
-      border-radius: 8px;
-      width: 400px;
-      box-shadow: 2px 2px 8px rgba(12, 173, 85, 0.1);
-      transition: transform 0.3s;
-    }
+      .card {
+        background: #eee;
+        padding: 0.5rem;
+        border-radius: 8px;
+        width: 400px;
+        box-shadow: 2px 2px 8px rgba(12, 173, 85, 0.1);
+        transition: transform 0.3s;
+      }
 
-    .card:hover {
-      transform: scale(1.05);
-    }
-</style>
-<script>
-    // Optional: Adjust popup position if card is near the edge
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.place-card').forEach(function(card) {
-            card.addEventListener('mousemove', function(e) {
-                const popup = card.querySelector('.place-popup');
-                if (popup) {
-                    const rect = card.getBoundingClientRect();
-                    popup.style.top = (e.clientY - rect.top - 60) + 'px';
-                    popup.style.left = (e.clientX - rect.left) + 'px';
-                }
-            });
+      .card:hover {
+        transform: scale(1.05);
+      }
+      .show-more-link {
+        color: #000000;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .show-more-link:hover {
+        color: blue;
+        transition: 0.5s;
+      }
+    </style>
+    <script>
+      // Optional: Adjust popup position if card is near the edge
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".place-card").forEach(function (card) {
+          card.addEventListener("mousemove", function (e) {
+            const popup = card.querySelector(".place-popup");
+            if (popup) {
+              const rect = card.getBoundingClientRect();
+              popup.style.top = e.clientY - rect.top - 60 + "px";
+              popup.style.left = e.clientX - rect.left + "px";
+            }
+          });
         });
-    });
-</script>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="/">Swift Route Lanka</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="places.html">Places</a></li>
-          <li class="nav-item"><a class="nav-link" href="routes.html">Routes</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
+      });
+
+      //Toggle card paragraphs
+      function toggleMoreText(link) {
+        const p = link.parentElement;
+        const moreText = p.querySelector(".more-text");
+        if (moreText.style.display === "none") {
+          moreText.style.display = "inline";
+          link.textContent = "Show less";
+        } else {
+          moreText.style.display = "none";
+          link.textContent = "Show more";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="/">Swift Route Lanka</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="places.html"
+                >Places</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="routes.html">Routes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Places section -->
+    <div class="container py-5">
+      <div class="row g-4">
+
+
+            <!-- Place 1: Ella -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Ella.jpg" style="height: 260.5px;" alt="Ella" />
+                  <h3>Ella</h3>
+                  <p>
+                    Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.
+                    <span class="more-text" style="display: none">
+                      Ella is famous for breathtaking views, tea plantations,
+                      and the Nine Arches Bridge. Explore Ravana Falls, hike
+                      Little Adam’s Peak, and enjoy the mountain air. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 2: Sigiriya -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/R.jpeg" style="height: 260.5px;" alt="Sigiriya" />
+                  <h3>Sigiriya</h3>
+                  <p>
+                    Ancient rock fortress with dramatic views.Sigiriya,
+                    <span class="more-text" style="display: none">
+                       or Lion Rock, is a UNESCO heritage site. Climb
+                      to the top and explore royal gardens, frescoes, and water
+                      features. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 3: Nuwara Eliya -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Nuwara.jpg" style="height: 260.5px;" alt="Nuwara Eliya" />
+                  <h3>Nuwara Eliya</h3>
+                  <p>
+                    Cool climates and colonial charm in tea country.
+                    <span class="more-text" style="display: none">
+                      Visit tea estates, Gregory Lake, and Horton Plains. It’s
+                      known as Little England for a reason. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 4: Dunhinda Waterfall -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/dunhinda wa.jpg" style="height: 260.5px;" alt="Dunhinda Waterfall" />
+                  <h3>Dunhinda Waterfall</h3>
+                  <p>
+                    One of Sri Lanka’s most beautiful waterfalls. Located near Badulla,
+                    <span class="more-text" style="display: none">
+                       Dunhinda Falls drops from a height
+                      of 64 meters into a misty gorge — an awe-inspiring natural
+                      wonder. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 5: Arugam Bay -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Aarugam BAy.jpg" style="height: 260.5px;" alt="Arugam Bay" />
+                  <h3>Arugam Bay</h3>
+                  <p>
+                    Top surf spot and chilled coastal vibe. Arugam Bay
+                    <span class="more-text" style="display: none">
+                       on the east coast is ideal for surfing,
+                      relaxing on the beach, and enjoying the lively food scene
+                      and nightlife. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 6: Yala National Park -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Yala National.jpg" style="height: 260.5px;" alt="Yala National Park" />
+                  <h3>Yala National Park</h3>
+                  <p>
+                    Sri Lanka’s most famous wildlife reserve. Home to leopards,
+                    <span class="more-text" style="display: none">
+                       elephants, crocodiles, and over 200 bird
+                      species, Yala is the perfect safari destination. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 7: Mirissa -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Mirissa.jpg" style="height: 260.5px;" alt="Mirissa" />
+                  <h3>Mirissa</h3>
+                  <p>
+                    Beaches and whale watching in southern Sri Lanka.
+                    <span class="more-text" style="display: none">
+                      Mirissa is popular for whale watching, beautiful beaches,
+                      snorkeling, and vibrant beach cafes. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 8: Kandy -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Kandy.jpg" style="height: 260.5px;" alt="Kandy" />
+                  <h3>Kandy</h3>
+                  <p>
+                    Cultural capital in central Sri Lanka. Visit the Temple
+                    <span class="more-text" style="display: none">
+                       of the Tooth, walk around Kandy Lake, and
+                      experience traditional Kandyan dance performances. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 9: Galle Fort -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Galle Fort.jpg" style="height: 260.5px;" alt="Galle Fort" />
+                  <h3>Galle Fort</h3>
+                  <p>
+                    Dutch colonial charm meets ocean breeze. Walk the ramparts,
+                    <span class="more-text" style="display: none">
+                       explore boutique shops, and watch the
+                      sunset over the Indian Ocean in this UNESCO heritage site. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 10: Adam's Peak -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Adam's Peak.jpg" style="height: 260.5px;" alt="Adam's Peak" />
+                  <h3>Adam's Peak</h3>
+                  <p>
+                    Spiritual hike to the sacred footprint. Climb 5,000+ steps
+                    <span class="more-text" style="display: none">
+                       to the summit to witness a sacred
+                      footprint revered by multiple religions and a breathtaking
+                      sunrise. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 11: Horton Plains -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/HortonPlains.jpg" style="height: 260.5px;" alt="Horton Plains" />
+                  <h3>Horton Plains</h3>
+                  <p>
+                    Misty highland plateau with stunning views. Home to the 
+                    <span class="more-text" style="display: none">
+                      famous World’s End viewpoint and Baker’s
+                      Falls, Horton Plains is ideal for scenic hikes in a unique
+                      ecosystem. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 12: Trincomalee -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Trincomalee.jpg" style="height: 260.5px;" alt="Trincomalee" />
+                  <h3>Trincomalee</h3>
+                  <p>
+                    Pristine beaches and naval heritage.Trincomalee is
+                    <span class="more-text" style="display: none">
+                       known for its natural deep-water harbor,
+                      serene Nilaveli and Uppuveli beaches, and ancient
+                      Koneswaram Temple. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 13: Anuradhapura -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Anuradhapura.jpg" style="height: 260.5px;" alt="Anuradhapura" />
+                  <h3>Anuradhapura</h3>
+                  <p>
+                    Ancient ruins and spiritual landmarks. One of the 
+                    <span class="more-text" style="display: none">
+                      oldest continuously inhabited cities, with
+                      gigantic stupas, ancient tanks, and the sacred Sri Maha
+                      Bodhi tree. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 14: Polonnaruwa -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Polonnaruwa.jpg" style="height: 260.5px;" alt="Polonnaruwa" />
+                  <h3>Polonnaruwa</h3>
+                  <p>
+                    Well-preserved medieval capital. Admire ancient temples,
+                    <span class="more-text" style="display: none">
+                       royal palaces, statues, and
+                      incredible stone carvings from Sri Lanka’s golden age. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 15: Bentota -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Bentota.jpg" style="height: 260.5px;" alt="Bentota" />
+                  <h3>Bentota</h3>
+                  <p>
+                    Resort town known for watersports. Bentota has sandy beaches,
+                    <span class="more-text" style="display: none">
+                       calm lagoons, and thrilling
+                      activities like jet skiing, banana boating, and river
+                      cruises. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 16: Unawatuna -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Unawatuna.jpg" style="height: 260.5px;" alt="Unawatuna" />
+                  <h3>Unawatuna</h3>
+                  <p>
+                    Charming crescent beach near Galle. Swim in calm turquoise waters,
+                    <span class="more-text" style="display: none">
+                       snorkel, or relax under
+                      palm trees at this family-friendly and lively beach. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 17: Jaffna -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Jaffna.jpg" style="height: 260.5px;" alt="Jaffna" />
+                  <h3>Jaffna</h3>
+                  <p>
+                    Cultural center of northern Sri Lanka. Explore Jaffna Fort,
+                    <span class="more-text" style="display: none">
+                       Nallur Temple, and the surrounding
+                      islands. A vibrant blend of Tamil heritage and colonial
+                      history. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 18: Dambulla Cave Temple -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Dambulla.jpg" style="height: 260.5px;" alt="Dambulla Cave Temple" />
+                  <h3>Dambulla Cave Temple</h3>
+                  <p>
+                    UNESCO site filled with Buddhist art. The temple complex
+                    <span class="more-text" style="display: none">
+                       includes five caves decorated with
+                      murals and over 150 Buddha statues. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 19: Kalpitiya -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Kalpitiya.jpg" style="height: 260.5px;" alt="Kalpitiya" />
+                  <h3>Kalpitiya</h3>
+                  <p>
+                    Hidden gem for dolphin watching and kitesurfing. A great eco-tourism
+                    <span class="more-text" style="display: none">
+                       destination known for its calm lagoons
+                      and marine life. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 20: Pinnawala Elephant Orphanage -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Pinnawala.jpg" style="height: 225.5px;" alt="Pinnawala" />
+                  <h3>Pinnawala Elephant Orphanage</h3>
+                  <p>
+                    Home for rescued and orphaned elephants. Watch elephants
+                    <span class="more-text" style="display: none">
+                       bathe in the river and roam the sanctuary.
+                      A popular and educational family attraction. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 21: Udawalawe National Park -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Udawalawe.jpg" style="height: 260.5px;" alt="Udawalawe" />
+                  <h3>Udawalawe National Park</h3>
+                  <p>
+                    Elephant spotting in scenic surroundings. One of the best places
+                    <span class="more-text" style="display: none">
+                       to see elephants in the wild, along
+                      with buffalo, deer, crocodiles, and birds. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 22: Hikkaduwa -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Hikkaduwa.jpg" style="height: 260.5px;" alt="Hikkaduwa" />
+                  <h3>Hikkaduwa</h3>
+                  <p>
+                    Snorkeling and surfing hotspot. This vibrant coastal
+                    <span class="more-text" style="display: none">
+                       town offers coral reefs, sea turtles,
+                      surf waves, and beachfront restaurants. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 23: Bundala National Park -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Bundala.jpg" style="height: 260.5px;" alt="Bundala" />
+                  <h3>Bundala National Park</h3>
+                  <p>
+                    Birdwatcher’s paradise. A Ramsar Wetland site with flamingos,
+                    <span class="more-text" style="display: none">
+                       storks, crocodiles,
+                      and other wildlife. Great for nature lovers and
+                      photographers. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 24: Sinharaja Forest Reserve -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Sinharaja.jpg" style="height: 260.5px;" alt="Sinharaja" />
+                  <h3>Sinharaja Rainforest</h3>
+                  <p>
+                    UNESCO biosphere full of biodiversity.
+                    <span class="more-text" style="display: none">
+                      This tropical rainforest is rich in endemic species of
+                      trees, insects, reptiles, and birds. A trekker’s dream. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 25: Mahiyanganaya Sorabora Wewa -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/SoraboraWewa.jpg" style="height: 260.5px;" alt="Sorabora Wewa" />
+                  <h3>Sorabora Wewa</h3>
+                  <p>
+                    Ancient reservoir surrounded by beauty.
+                    <span class="more-text" style="display: none">
+                      An irrigation marvel from ancient times, this peaceful
+                      tank is surrounded by lush green and perfect for boat
+                      rides. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 26: Madulsima Mini World's End -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Madulsima.jpg" style="height: 260.5px;" alt="Madulsima" />
+                  <h3>Madulsima Mini World’s End</h3>
+                  <p>
+                    Unmatched mountain views and clouds.
+                    <span class="more-text" style="display: none">
+                      A hidden viewpoint offering a similar experience to
+                      World’s End in Horton Plains, minus the crowds. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 27: Pidurangala Rock -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Pidurangala.jpg" style="height: 260.5px;" alt="Pidurangala" />
+                  <h3>Pidurangala Rock</h3>
+                  <p>
+                    Best view of Sigiriya Rock.
+                    <span class="more-text" style="display: none">
+                      A short hike rewards you with a panoramic view of Sigiriya
+                      and the surrounding jungle, especially beautiful at
+                      sunrise. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 28: Mannar Island -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Mannar.jpg" style="height: 260.5px;" alt="Mannar Island" />
+                  <h3>Mannar Island</h3>
+                  <p>
+                    Historic island with desert-like terrain.
+                    <span class="more-text" style="display: none">
+                      Explore shallow lagoons, windmills, the ancient Baobab
+                      tree, and the old Dutch Fort in this unique coastal
+                      setting. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 29: Diyaluma Falls -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/Diyaluma.jpg" style="height: 260.5px;" alt="Diyaluma Falls" />
+                  <h3>Diyaluma Falls</h3>
+                  <p>
+                    Sri Lanka’s second tallest waterfall.
+                    <span class="more-text" style="display: none">
+                      This waterfall cascades down in tiers. You can hike to the
+                      top and swim in its natural pools with an amazing view. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Place 30: Ella Rock -->
+            <div class="col-md-4">
+              <div class="cards">
+                <div class="card">
+                  <img src="images/EllaRock.jpg" style="height: 260.5px;" alt="Ella Rock" />
+                  <h3>Ella Rock</h3>
+                  <p>
+                    Popular hiking destination in Ella.
+                    <span class="more-text" style="display: none">
+                      Offering spectacular views of valleys and mountains, Ella
+                      Rock is a rewarding half-day hike for adventurers and
+                      nature lovers. </span
+                    ><a
+                      href="#"
+                      class="show-more-link"
+                      onclick="toggleMoreText(this); return false;"
+                      >Show more</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more places if you like -->
       </div>
     </div>
-  </nav>
 
-  <!-- Places section -->
-  <div class="container py-5">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card place-card shadow-sm">
-          <div class="cards">
-            <div class="card">
-              <img src="images/Ella.jpg" alt="Ella" />
-              <h3>Ella</h3>
-              <p>Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.</p>
-            </div>
-        </div>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5">
+      <div class="container">
+        <p class="mb-0">© 2025 Swift Route Lanka. All rights reserved.</p>
       </div>
-      
-      <div class="col-md-4">
-        <div class="card place-card shadow-sm">
-            <div class="cards">
-              <div class="card">
-                <img src="images/Ella.jpg" alt="Ella" />
-                <h3>Ella</h3>
-                <p>Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.</p>
-              </div>
-            </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="card place-card shadow-sm">
-          <div class="cards">
-              <div class="card">
-                <img src="images/Ella.jpg" alt="Ella" />
-                <h3>Ella</h3>
-                <p>Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.</p>
-              </div>
-            </div>
-        </div>
-      </div>
+    </footer>
 
-        <div class="container py-5">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card place-card shadow-sm">
-          <div class="cards">
-            <div class="card">
-              <img src="images/Ella.jpg" alt="Ella" />
-              <h3>Ella</h3>
-              <p>Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.</p>
-            </div>
-        </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="card place-card shadow-sm">
-            <div class="cards">
-              <div class="card">
-                <img src="images/Ella.jpg" alt="Ella" />
-                <h3>Ella</h3>
-                <p>Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.</p>
-              </div>
-            </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="card place-card shadow-sm">
-          <div class="cards">
-              <div class="card">
-                <img src="images/Ella.jpg" alt="Ella" />
-                <h3>Ella</h3>
-                <p>Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.</p>
-              </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Add more places if you like -->
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-light text-center py-4 mt-5">
-    <div class="container">
-      <p class="mb-0">© 2025 Swift Route Lanka. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
