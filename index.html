@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swift Route Lanka</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <h1>Swift Route Lanka</h1>
@@ -52,36 +54,57 @@
 
   <section id="rentals">
     <h2>Rent a Vehicle</h2>
-    <form id="rentalForm">
-      <label for="vehicle">Choose a vehicle:</label>
-      <select id="vehicle" name="vehicle">
-        <option value="car">Car</option>
-        <option value="bike">Motorbike</option>
-        <option value="three wheel">three wheel</option>
-        <option value="van">Van</option>
-      </select>
+    <div class="cards">
+      <div class="card">
+        <img src="images/KDH.webp" alt="Ella" />
+        <h3>Van</h3>
+        <p><b>Description:</b> Power and luxury combined — ideal for off-road adventures and hilly terrain. <br>
+              <b>Ideal For: </b>For 6–10 passengers, tour groups, and business transport.</p>
+      </div>
+      <div class="card">
+        <img src="images/hilux.jpeg" alt="Arugambay" />
+        <h3>Cab</h3>
+        <p><b>Description:</b> Perfect for city rides and short trips — comfort, speed, and convenience all in one.
+            <b>Ideal For:</b> Couples, offroad travelers, small families.</p>
+      </div>
+      <div class="card">
+        <img src="images/prius.webp" alt="Sigiriya" />
+        <h3>Car</h3>
+        <p><b>Description:</b> Power and luxury combined — ideal for off-road adventures and hilly terrain. <br>
+            <b>Ideal For:</b> Mountain tours, wildlife parks, rugged areas.</p>
+      </div>
+      <div class="card">
+        <img src="images/range rover.jpg" alt="Udawalawa" />
+        <h3>Jeep</h3>
+        <p><b>Description:</b> Luxury SUV for premium comfort and performance. <br>
+            <b>Ideal For:</b>  city rides or countryside escapes.</p>
+      </div>
+      <div class="card">
+        <img src="images/sahara.avif" alt="Udawalawa" />
+        <h3>Jeep</h3>
+        <p><b>Description:</b> Rugged, reliable, and powerful. <br>
+            <b>Ideal For:</b> built for off-road adventures and long road trips..</p>
+      </div>
+    </div>
 
-      <label for="days">Number of days:</label>
-      <input type="number" id="days" name="days" min="1" max="30" />
-
-      <button type="button" onclick="calculatePrice()">Calculate Price</button>
-    </form>
-    <p id="priceDisplay"></p>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Email: swiftroutelanka@gmail.com | Phone: +94 742883594</p>
     <div class="social-media"></div>
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="32" height="32" />
-      </a>
-      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" width="32" height="32" />
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="32" height="32" />
-      </a>
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="32"
+        height="32" />
+    </a>
+    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" width="32"
+        height="32" />
+    </a>
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="32"
+        height="32" />
+    </a>
     </div>
   </section>
 
@@ -89,23 +112,7 @@
     <p>&copy; 2025 ExploreGo. All rights reserved.</p>
   </footer>
 
-  <script>
-    function calculatePrice() {
-      const vehicle = document.getElementById("vehicle").value;
-      const days = parseInt(document.getElementById("days").value);
-      let rate = 0;
 
-      if (vehicle === "car") rate = 8000;
-      else if (vehicle === "bike") rate = 5000;
-      else if (vehicle === "van") rate = 9000;
-      else if (vehicle === "three wheel") rate = 6000;
-
-      let total = rate * days;
-      if (!days || days === 0) {
-        total = 0;
-      }
-      document.getElementById("priceDisplay").textContent = `Total Price: Rs. ${total}`;
-    }
-  </script>
 </body>
+
 </html>
