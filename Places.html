@@ -1,62 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Places - Swift Route Lanka</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background: #f4f4f4; 
-        }
-        header {
-            background: #0074D9;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        h1, h2 {
-            margin-top: 0;
-        }
-        ul {
-            list-style: disc inside;
-        }
-        footer {
-            text-align: center;
-            padding: 15px 0;
-            background: #eee;
-            color: #555;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swift Route Lanka</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Swift Route Lanka</h1>
-        <p>Discover Popular Places</p>
-    </header>
-    <main>
-        <h2>Featured Places</h2>
-        <ul>
-            <li>Colombo Fort Railway Station</li>
-            <li>Galle Face Green</li>
-            <li>Kandy Lake</li>
-            <li>Sigiriya Rock Fortress</li>
-            <li>Temple of the Tooth Relic</li>
-        </ul>
-    </main>
-    <footer>
-        &copy; 2024 Swift Route Lanka. All rights reserved.
-    </footer>
+  <header>
+    <h1>Swift Route Lanka</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#places">Places to Go</a></li>
+        <li><a href="#rentals">Vehicle Renting</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome to Swift Route Lanka</h2>
+    <p>"Explore Sri Lanka Swiftly – Safe Rides, Beautiful Destinations."</p>
+  </section>
+
+  <section id="places">
+    <h2>Top Places to Visit</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/Ella.jpg" alt="Ella" />
+        <h3>Ella</h3>
+        <p>Waterfalls, hikes, heritage — Sri Lanka’s hill country gem.</p>
+      </div>
+      <div class="card">
+        <img src="images/Aarugam BAy.jpg" alt="Arugambay" />
+        <h3>Arugam Bay</h3>
+        <p>Surf, relax, explore—Sri Lanka’s coastal paradise awaits.</p>
+      </div>
+      <div class="card">
+        <img src="images/Sigiriya1.jpg" alt="Sigiriya" />
+        <h3>Sigiriya</h3>
+        <p>Ancient fortress with stunning views and gardens.</p>
+      </div>
+      <div class="card">
+        <img src="images/Udawalawe Park.jpg" alt="Udawalawa" />
+        <h3>Udawalawe Park</h3>
+        <p>Experience wild elephants, stunning nature, and safari thrills.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rentals">
+    <h2>Rent a Vehicle</h2>
+    <form id="rentalForm">
+      <label for="vehicle">Choose a vehicle:</label>
+      <select id="vehicle" name="vehicle">
+        <option value="car">Car</option>
+        <option value="bike">Motorbike</option>
+        <option value="three wheel">three wheel</option>
+        <option value="van">Van</option>
+      </select>
+
+      <label for="days">Number of days:</label>
+      <input type="number" id="days" name="days" min="1" max="30" />
+
+      <button type="button" onclick="calculatePrice()">Calculate Price</button>
+    </form>
+    <p id="priceDisplay"></p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: swiftroutelanka@gmail.com | Phone: +94 742883594</p>
+    <div class="social-media"></div>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="32" height="32" />
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" width="32" height="32" />
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="32" height="32" />
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ExploreGo. All rights reserved.</p>
+  </footer>
 </body>
 </html>
