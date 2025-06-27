@@ -7,7 +7,7 @@ This repository contains the source code and documentation for **Swift Route Lan
 ## 🌐 Website Information
 
 - **Website Name:** Swift Route Lanka  
-- **Full URL:** [https://nadew-jayaweera.github.io/Swift-Route-Lanka/](https://nadew-jayaweera.github.io/Swift-Route-Lanka/)
+- **Full URL:** [http://www.swiftroutelanka.xyz](http://www.swiftroutelanka.xyz)
 
 ---
 
