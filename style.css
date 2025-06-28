@@ -127,4 +127,5 @@ header {
   align-items: center;
   background: rgba(215, 215, 215, 0.8);
   backdrop-filter: blur(2px);
+  z-index: 10;
 }
