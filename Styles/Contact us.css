@@ -191,14 +191,6 @@ body {
       margin-top: 16px;
     }
 
-    .social-media a img {
-      transition: transform 0.2s;
-    }
-
-    .social-media a:hover img {
-      transform: scale(1.1);
-    }
-
     #contact p {
       text-align: center;
     }
@@ -233,4 +225,34 @@ body {
     button:hover {
       background: #0056b3;
     }
+    /* ...existing code... */
+
+.social-media a img {
+    transition: transform 0.2s, filter 0.2s;
+    filter: grayscale(60%) brightness(0.9);
+}
+
+.social-media a:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 8px #007bff);
+}
+
+/* Optional: Specific color for each social icon on hover */
+.social-media a.facebook:hover img {
+    filter: none;
+    box-shadow: 0 0 8px #1877f3;
+}
+.social-media a.twitter:hover img {
+    filter: none;
+    box-shadow: 0 0 8px #1da1f2;
+}
+.social-media a.instagram:hover img {
+    filter: none;
+    box-shadow: 0 0 8px #e1306c;
+}
+.social-media a.linkedin:hover img {
+    filter: none;
+    box-shadow: 0 0 8px #0a66c2;
+}
+/* ...existing code... */
 
