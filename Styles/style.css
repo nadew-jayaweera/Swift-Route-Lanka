@@ -9,10 +9,18 @@
   color: #fff;
   font-size: 2rem;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border-radius: 50%;
+  background: transparent;
+  padding: 6px;
 }
 .social-icon:hover {
   color: #007bff;
+  transform: scale(1.18) translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22), 0 1.5px 6px rgba(0,0,0,0.12);
+  background: #fff2;
+  z-index: 2;
 }
 /* styles.css */
 * {
