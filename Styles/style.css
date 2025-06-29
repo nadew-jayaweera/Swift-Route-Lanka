@@ -1,3 +1,28 @@
+.home-title span {
+  background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color:linear-gradient( #00c6fb 0%, #005bea 100%) ;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.hearing-you-box {
+  margin: 32px auto 0 auto;
+  padding: 18px 38px;
+  background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+  color: #fff;
+  font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  text-align: center;
+  width: fit-content;
+  transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s, border-radius 0.25s;
+  cursor: pointer;
+}
+.hearing-you-box:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.12);
+}
 .social-icons {
   display: flex;
   justify-content: center;
