@@ -82,3 +82,22 @@ body {
         padding: 18px 8px;
     }
 }
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: url('../images/index/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+#contact {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 645px;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #356c6981;
+    align-items: flex-end;
+    align-content: flex-end;
+    
+}
