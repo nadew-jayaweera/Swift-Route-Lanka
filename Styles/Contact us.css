@@ -1,8 +1,60 @@
+/* Centered form section for Contact Us */
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  margin-top: 120px;
+  margin-bottom: 40px;
+}
+
+/* Header styles to match index.html */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(215, 215, 215, 0.8);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+header h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 30px;
+  font-family: 'Pacifico', cursive;
+  transition: transform 0.3s ease-in-out;
+}
+header h1:hover {
+  transform: scale(1.05);
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+nav ul li a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+nav ul li a:hover {
+  transform: scale(1.05);
+}
 /* Contact Us Page Styles */
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f7f9fb;
+    background: url('../images/index/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
@@ -113,4 +165,72 @@ body {
   text-align: center;
   pointer-events: none;
 }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    #contact {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      background: #ffffff67;
+    }
+
+    #contact h2 {
+      text-align: center;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .social-media a img {
+      transition: transform 0.2s;
+    }
+
+    .social-media a:hover img {
+      transform: scale(1.1);
+    }
+
+    #contact p {
+      text-align: center;
+    }
+
+    form {
+      margin-top: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
 
