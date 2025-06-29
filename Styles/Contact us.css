@@ -92,11 +92,11 @@ body {
 #contact {
     max-width: 500px;
     margin: auto;
-    margin-top: 645px;
+    margin-top: 90px;
     padding: 20px;
     border: 1px solid #000000;
     border-radius: 8px;
-    background: #356c6981;
+    background: #356c69be;
     align-items: flex-end;
     align-content: flex-end;
     
