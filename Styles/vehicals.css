@@ -1,0 +1,58 @@
+body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .place-card img {
+        height: 200px;
+        object-fit: cover;
+      }
+      /* Popup styles */
+      .place-popup {
+        display: none;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 16px 20px;
+        border-radius: 8px;
+        min-width: 220px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        font-size: 1rem;
+      }
+      .place-card {
+        position: relative;
+        cursor: pointer;
+      }
+      .place-card:hover .place-popup {
+        display: block;
+      }
+      .cards {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        background: #eee;
+        padding: 0.5rem;
+        border-radius: 8px;
+        width: 400px;
+        box-shadow: 2px 2px 8px rgba(12, 173, 85, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+      .show-more-link {
+        color: #000000;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .show-more-link:hover {
+        color: blue;
+        transition: 0.5s;
+      }
