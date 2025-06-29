@@ -59,9 +59,10 @@ nav ul li a {
   color: #000000;
   text-decoration: none;
   font-weight: bold;
+  font-family: 'Pacifico', cursive;
 }
 nav ul li a:hover {
-  
+  transform:scale(1.05);
   transition: 0.3s ease-in-out;
 }
 
@@ -81,6 +82,7 @@ section {
   padding: 2rem 0;
   background: #f9f9f9;
   position: relative;
+  min-height: 340px;
 }
 .float-img-container {
   display: flex;
@@ -212,14 +214,15 @@ header {
   z-index: 10;
 }
 
+
 header h1 {
   margin: 0;
   padding: 10px;
   font-size: 30px;
+  transition: transform 0.3s ease-in-out;
 }
 
 header h1:hover {
-  transform:scale(1.05);
-  transition: scale 0.3s ease-in-out;
+  transform: scale(1.05);
 }
 
