@@ -1,9 +1,77 @@
+/* About Section Styles */
+.about-section {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  max-width: 800px;
+  margin: 48px auto 32px auto;
+  padding: 40px 32px 32px 32px;
+  text-align: center;
+}
+.about-section h2 {
+  color: #005bea;
+  font-size: 3.2rem;
+  margin-bottom: 22px;
+  font-family: 'Pacifico', cursive;
+}
+.about-section p {
+  color: #333;
+  font-size: 1.45rem;
+  margin-bottom: 28px;
+}
+.about-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+}
+.about-highlights li {
+  background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+  color: #fff;
+  margin: 14px 0;
+  padding: 16px 22px;
+  border-radius: 8px;
+  font-size: 1.18rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+/* Animated Down Arrow */
+.scroll-down-animated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  z-index: 2;
+  margin-bottom: 50px;
+}
+.scroll-down-animated span {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-bottom: 4px solid #fff;
+  border-right: 4px solid #fff;
+  transform: rotate(45deg);
+  animation: bounce-arrow 1.2s infinite cubic-bezier(.68,-0.55,.27,1.55);
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+@keyframes bounce-arrow {
+  0%, 100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(18px) rotate(45deg);
+    opacity: 0.7;
+  }
+}
 .home-title span {
   background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color:linear-gradient( #00c6fb 0%, #005bea 100%) ;
   background-clip: text;
-  text-fill-color: transparent;
 }
 .hearing-you-box {
   margin: 32px auto 0 auto;
@@ -113,6 +181,17 @@
       background-attachment: fixed;
       z-index: -1;
 }
+.bg-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.38);
+    z-index: 1;
+    pointer-events: none;
+}
 
 /* Additional background layer below the image */
 .bg-img::after {
@@ -137,7 +216,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #f4f4f4;
+  background: #f4f4f422;
 }
 
 nav ul {
@@ -172,9 +251,10 @@ section {
   width: 100vw;
   overflow-x: hidden;
   padding: 2rem 0;
-  background: #f9f9f9;
+  background: rgba(255, 255, 255, 0.092);
   position: relative;
   min-height: 340px;
+  backdrop-filter: blur(0.5px);
 }
 .float-img-container {
   display: flex;
@@ -184,7 +264,7 @@ section {
   align-items: stretch;
   width: max-content;
   margin: 0 auto;
-  animation: float-scroll 24s linear infinite;
+  animation: float-scroll 48s linear infinite;
 }
 
 @keyframes float-scroll {
