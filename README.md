@@ -77,3 +77,19 @@ Completed the **Introduction to Web Applications** module on Hack The Box Academ
 
 ---
 
+## Getting Started
+
+To run this project locally, simply clone the repository and open the `index.html` file in your web browser.
+
+```bash
+# Clone the repository
+git clone https://github.com/nadew-jayaweera/swift-route-lanka.git
+
+# Navigate to the project directory
+cd swift-route-lanka
+
+# Open the main HTML file in your browser
+# (You can right-click index.html and choose 'Open with Browser')
+```
+
+
