@@ -1,12 +1,15 @@
 /* About Section Styles */
-.about-section {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  max-width: 800px;
-  margin: 48px auto 32px auto;
-  padding: 40px 32px 32px 32px;
-  text-align: center;
+  .about-section {
+    background: url('../images/index/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    border-radius: 16px;
+    box-shadow: 0 0 0 24px rgba(255,255,255,0.18), 0 4px 24px rgba(0,0,0,0.08);
+    max-width: 800px;
+    margin: 48px auto 32px auto;
+    padding: 40px 32px 32px 32px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 .about-section h2 {
   color: #005bea;
@@ -181,30 +184,7 @@
       background-attachment: fixed;
       z-index: -1;
 }
-.bg-img::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.38);
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Additional background layer below the image */
-.bg-img::after {
-    content: "";
-    position:fixed ;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(40, 167, 69, 0.18) 100%);
-    pointer-events: none;
-}
+/* Removed all background filters and overlays from .bg-img */
 
 a{
   text-decoration: none;
@@ -216,8 +196,11 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #f4f4f422;
+  background: url('../images/index/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
 }
+/* Removed all background filters and overlays from body */
 
 nav ul {
   list-style: none;
@@ -246,15 +229,18 @@ section {
 }
 
 /* Floating Images Section */
-.floating-images {
-  width: 100vw;
-  overflow-x: hidden;
-  padding: 2rem 0;
-  background: rgba(255, 255, 255, 0.092);
-  position: relative;
-  min-height: 340px;
-  backdrop-filter: blur(0.5px);
+  .floating-images {
+    width: 100vw;
+    overflow-x: hidden;
+    padding: 2rem 0;
+    background: url('../images/index/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 340px;
+    z-index: 1;
 }
+
+/* Removed dark overlay and filters from floating-images section */
 .float-img-container {
   display: flex;
   flex-direction: row-reverse;
