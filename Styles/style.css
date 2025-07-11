@@ -590,6 +590,9 @@ header h1:hover {
         height: 32px;
         font-size: 1.1rem;
       }
+      .footer-social {
+        justify-content: center;
+      }
     }
     @media (max-width: 400px) {
       .footer-col h3, .footer-connect h3 {
