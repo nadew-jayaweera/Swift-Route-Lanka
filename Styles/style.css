@@ -20,8 +20,8 @@
   background: rgba(255, 255, 255, 0.39);
   border-radius: 16px;
   z-index: -1;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 .about-section h2 {
   color: #005bea;
@@ -257,12 +257,12 @@ section {
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.39);
-    filter: blur(10px);
+    filter: blur(1px);
     z-index: 0;
     pointer-events: none;
     border-radius: 16px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
   }
   .floating-images > * {
     position: relative;
