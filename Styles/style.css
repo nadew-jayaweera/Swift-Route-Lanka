@@ -211,6 +211,18 @@
   z-index: -1;
 }
 
+.bg-img::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.55); /* Adjust opacity for darkness */
+  z-index: 0;
+  pointer-events: none;
+}
+
 a{
   text-decoration: none;
   color: #333333;
