@@ -40,16 +40,19 @@
   <header>
     <h1 style="font-family: 'Pacifico', cursive;" >Swift Route Lanka</h1>
     <nav>
-      <ul>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="Sub paths/Places.html">Places to Go</a></li>
         <li><a href="Sub paths/Vehicals.html">Vehicle Renting</a></li>
         <li><a href="Sub paths/Contact us.html">Contact</a></li>
       </ul>
+      <button class="nav-toggle" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
   </header>
 
-
+  
   <!-- Home Section -->
   <section id="home">
     <div class="bg-img"></div>
@@ -278,7 +281,39 @@
     </div>
   </footer>
 
-  test
+  <script>
+  // Card hover effect: show button, hide description
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.card').forEach(function(card) {
+      const desc = card.querySelector('.card-desc');
+      const btn = card.querySelector('.card-btn');
+      if (desc && btn) {
+        card.addEventListener('mouseenter', () => {
+          desc.style.display = 'none';
+          btn.style.display = 'block';
+        });
+        card.addEventListener('mouseleave', () => {
+          desc.style.display = 'block';
+          btn.style.display = 'none';
+        });
+      }
+    });
+
+    // Responsive nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('show');
+    });
+
+    // Optional: Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        navLinks.classList.remove('show');
+      }
+    });
+  });
+</script>
 
 
 </body>

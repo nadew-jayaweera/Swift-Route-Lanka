@@ -1,4 +1,16 @@
 /* About Section Styles */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  margin-left: 16px;
+  z-index: 20;
+}
+
   .about-section {
     background: url('../images/index/bg.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -242,13 +254,12 @@ section {
 
 /* Floating Images Section */
   .floating-images {
-    width: 100vw;
+    width: 98vw;
     overflow-x: hidden;
     padding: 2rem 0;
     background: url('../images/index/bg.jpg') no-repeat center center fixed;
     background-size: cover;
     position: relative;
-    min-height: 340px;
     /* Blur effect */
     isolation: isolate;
   }
@@ -541,24 +552,10 @@ header h1:hover {
 
     /* Responsive Styles */
     @media (max-width: 900px) {
-      .footer-main {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0 16px;
+      .site-footer {
+        width:auto;
       }
-      .footer-columns {
-        gap: 18px;
-        justify-content: flex-start;
-      }
-      .footer-connect {
-        margin-top: 24px;
-        text-align: left;
-      }
-      .footer-bottom {
-        flex-direction: column;
-        gap: 18px;
-        padding: 18px 16px;
-      }
+      
     }
     @media (max-width: 600px) {
       .footer-main {
@@ -593,7 +590,59 @@ header h1:hover {
       .footer-social {
         justify-content: center;
       }
+      nav {
+        position: relative;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 56px;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        border-radius: 8px;
+        flex-direction: column;
+        min-width: 180px;
+        padding: 12px 0;
+        z-index: 15;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-links li {
+        display: block;
+        margin: 0;
+        padding: 8px 24px;
+        border-bottom: 1px solid #eee;
+      }
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+      .nav-links li a {
+        font-size: 1.2rem;
+        color: #005bea;
+        font-family: 'Pacifico', cursive;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .footer-copyright {
+        justify-content: center;
+      }
+      .home-title span {
+        font-size: 4rem;
+      }
+      .home-title {
+        font-size: 4rem;
+        margin-top: 2rem;
+      }
+      .floating-images {
+        min-height: 0;
+        margin: 0;
+      }
+
     }
+
     @media (max-width: 400px) {
       .footer-col h3, .footer-connect h3 {
         font-size: 1rem;
@@ -602,4 +651,8 @@ header h1:hover {
         font-size: 0.92rem;
       }
     }
+
+    
+
+
 
