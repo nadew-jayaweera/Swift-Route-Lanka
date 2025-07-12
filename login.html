@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Swift Route Lanka</title>
+  <link rel="stylesheet" href="Styles/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    body {
+      background: #f7f9fc;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .auth-container {
+      max-width: 400px;
+      margin: 60px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,123,255,0.07);
+      padding: 32px 28px;
+    }
+    .auth-title {
+      font-family: 'Pacifico', cursive;
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 2rem;
+    }
+    .auth-form label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+      color: #333;
+    }
+    .auth-form input {
+      width: 100%;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      border: 1px solid #dbeafe;
+      font-size: 1rem;
+      background: #f1f5fb;
+      transition: border 0.2s;
+    }
+    .auth-form input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 10px 0;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .auth-btn:hover {
+      background: #0056b3;
+    }
+    .auth-links {
+      text-align: center;
+      margin-top: 18px;
+    }
+    .auth-links a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 8px;
+    }
+    .auth-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="font-family: 'Pacifico', cursive;">Swift Route Lanka</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Sub paths/Places.html">Places to Go</a></li>
+        <li><a href="Sub paths/Vehicals.html">Vehicle Renting</a></li>
+        <li><a href="Sub paths/Contact us.html">Contact</a></li>
+      </ul>
+      <div class="nav-auth-buttons">
+        <a href="login.html" class="nav-btn login-btn">Login</a>
+        <a href="register.html" class="nav-btn register-btn">Register</a>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+  <div class="auth-container">
+    <div class="auth-title">Login</div>
+    <form class="auth-form">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+      <button type="submit" class="auth-btn">Login</button>
+    </form>
+    <div class="auth-links">
+      <a href="register.html">Don't have an account? Register</a>
+    </div>
+  </div>
+
+
+
+
+
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCvIia-i1mmMTt9VIuQNMHepPFmIL_LHRI",
+    authDomain: "swift-route-lanka.firebaseapp.com",
+    projectId: "swift-route-lanka",
+    storageBucket: "swift-route-lanka.firebasestorage.app",
+    messagingSenderId: "211170470678",
+    appId: "1:211170470678:web:3845b18505650417a7be37",
+    measurementId: "G-ZXP44MTRZ9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCvIia-i1mmMTt9VIuQNMHepPFmIL_LHRI",
+    authDomain: "swift-route-lanka.firebaseapp.com",
+    projectId: "swift-route-lanka",
+    storageBucket: "swift-route-lanka.firebasestorage.app",
+    messagingSenderId: "211170470678",
+    appId: "1:211170470678:web:3845b18505650417a7be37",
+    measurementId: "G-ZXP44MTRZ9"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+
+  const form = document.querySelector(".auth-form");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("Login successful!");
+        window.location.href = "https://www.swiftroutelanka.xyz"; // Redirect after login
+      })
+      .catch((error) => {
+        alert("Login failed: " + error.message);
+      });
+  });
+</script>
+
+
+
+</body>
+</html>
