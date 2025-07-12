@@ -79,31 +79,7 @@
 
 
 
-  <script>
-    const auth = getAuth(app);
 
-    // Get the form and inputs
-    const form = document.querySelector(".auth-form");
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
-    
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const email = emailInput.value;
-        const password = passwordInput.value;
-
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            alert("User registered successfully!");
-            window.location.href = "login.html"; // Optional: redirect to login
-          })
-          .catch((error) => {
-            alert("Error: " + error.message);
-          });
-    });
-
-  </script>
 </head>
 <body>
   <header>
@@ -142,8 +118,7 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyCvIia-i1mmMTt9VIuQNMHepPFmIL_LHRI",
@@ -156,28 +131,33 @@
   };
 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
   const auth = getAuth(app);
 
-  const form = document.querySelector(".auth-form");
-  const emailInput = document.getElementById("email");
-  const passwordInput = document.getElementById("password");
+  const form = document.querySelector('.auth-form');
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const email = emailInput.value;
-    const password = passwordInput.value;
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        alert("User registered successfully!");
-        window.location.href = "login.html";
+        return updateProfile(userCredential.user, {
+          displayName: name
+        });
+      })
+      .then(() => {
+        alert("Registration successful!");
+        window.location.href = "index.html"; // redirect to homepage after registration
       })
       .catch((error) => {
         alert("Error: " + error.message);
       });
   });
 </script>
+
 
 
 <script type="module">
