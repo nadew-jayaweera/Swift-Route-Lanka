@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swift Route Lanka - Travel & Transport</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
     * {
       box-sizing: border-box;
@@ -15,13 +18,13 @@
     body {
       font-family: Arial, sans-serif;
       background: #ffffff;
-      color: #333;
+      color: #000000;
       background-image: 
       linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
       url('../images/New/bg.jpg');
       background-blend-mode: darken;
     }
-    }
+    
 
     .navbar {
       display: flex;
@@ -29,7 +32,7 @@
       align-items: center;
       background: #024873;
       padding: 15px 30px;
-      color: white;
+      color: rgb(0, 0, 0);
       flex-wrap: wrap;
     }
 
@@ -46,7 +49,7 @@
     }
 
     .nav-links li a {
-      color: white;
+      color: rgb(0, 0, 0);
       text-decoration: none;
       font-weight: bold;
     }
@@ -157,18 +160,81 @@
 </head>
 <body>
 
-  <header>
-    <nav class="navbar">
-      <div class="logo">Swift Route Lanka</div>
+<header>
+    <h1 style="font-family: 'Pacifico', cursive;">Swift Route Lanka</h1>
+    <nav>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#local">Local Tourists</a></li>
-        <li><a href="#foreign">Foreign Tourists</a></li>
-        <li><a href="#transport">Transport</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://swiftroutelanka.xyz">Home</a></li>
+        <li><a href="https://places.swiftroutelanka.xyz">Places to Go</a></li>
+        <li><a href="https://vehical.swiftroutelanka.xyz">Vehicle Renting</a></li>
+        <li><a href="https://contact.swiftroutelanka.xyz">Contact</a></li>
       </ul>
+      
+
+
+      <button class="nav-toggle" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
+          <div class="nav-auth-buttons" id="auth-buttons">
+        <a href="https://login.swiftroutelanka.xyz" class="nav-btn login-btn">Login</a>
+      </div>
   </header>
+  <style>
+    .nav-auth-buttons {
+      display: flex;
+      margin-left: 20px;
+      vertical-align: middle;
+      justify-content: flex-end;
+      align-items: center;
+      dis
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 18px;
+      margin: 0 4px;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+    .login-btn {
+      background: #fff;
+      color: #007bff;
+      border: 1px solid #007bff;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.07);
+    }
+    .login-btn:hover {
+      background: #007bff;
+      color: #fff;
+    }
+    .register-btn {
+      background: #007bff;
+      color: #fff;
+      border: 1px solid #007bff;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.07);
+    }
+    .register-btn:hover {
+      background: #0056b3;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .nav-auth-buttons {
+        display: block;
+        margin: 10px 0 0 0;
+        text-align: right;
+      }
+      .nav-btn {
+        margin: 4px 0;
+        width: 100px;
+      }
+    }
+  </style>
+
 
   <section class="hero">
     <h1>Discover Sri Lanka with Ease</h1>
@@ -229,9 +295,82 @@
     </div>
   </section>
 
-  <footer id="contact">
-    <p>Contact us: info@swiftroutelanka.xyz | +94 76 123 4567</p>
-    <p>Â© 2025 Swift Route Lanka. All Rights Reserved.</p>
+  <!-- Modern Footer -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="https://swiftroutelanka.xyz">Home</a></li>
+            <li><a href="https://places.swiftroutelanka.xyz">Places To Go</a></li>
+            <li><a href="https://vehical.swiftroutelanka.xyz">Vehical Renting</a></li>
+            <li><a href="https://contact.swiftroutelanka.xyz">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Book</h3>
+          <ul>
+            <li><a href="#">Van</a></li>
+            <li><a href="#">Car</a></li>
+            <li><a href="#">Cab</a></li>
+            <li><a href="#">Bus</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Traveler Tools</h3>
+          <ul>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Check My Booking</a></li>
+            <li><a href="#">Travel Alerts</a></li>
+            <li><a href="https://contact.swiftroutelanka.xyz">Help Center</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="https://swiftroutelanka.xyz#about">About Us</a></li>
+            <li><a href="#">Press Room</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="https://contact.swiftroutelanka.xyz">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect with Us</h3>
+          <div class="footer-social">
+          <a href="https://web.facebook.com/" title="Facebook" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/" title="Twitter" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/" title="Instagram" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/" title="TikTok" class="footer-social-icon"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-payments">
+        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa" />
+        <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="MasterCard" />
+        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal" />
+        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex" />
+        <img src="https://img.icons8.com/color/48/000000/apple-pay.png" alt="Apple Pay" />
+      </div>
+      <div class="footer-copyright">
+        <span>&copy; 2025 Swift Route Lanka. All rights reserved.</span>
+        <span class="footer-links">
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
   </footer>
 
 </body>
