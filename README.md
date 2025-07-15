@@ -1,95 +1,123 @@
-# Swift Route Lanka
+# Swift Route Lanka 🌍
 
-This repository contains the source code and documentation for **Swift Route Lanka**, a website project created as part of the **Web Hosting assignment**.
+**Swift Route Lanka** is a tourism-focused website built to provide a seamless and engaging experience for both local and foreign travelers exploring Sri Lanka. The platform is modular, with various subdomains dedicated to specific services such as places to visit, packages, and user authentication.
 
----
-
-## 🌐 Website Information
-
-- **Website Name:** Swift Route Lanka  
-- **Full URL:** [http://www.swiftroutelanka.xyz](http://www.swiftroutelanka.xyz)
+> 🛤️ A single gateway to travel, explore, and connect across Sri Lanka!
 
 ---
 
-## 🛠️ Project Purpose
-
-The purpose of this website is to demonstrate the key steps involved in web hosting, including:
-
-- Selecting a domain name
-- Comparing hosting plans
-- Publishing a website on GitHub Pages
-- Documenting the process and justifications
-- simply do the assessment in network module
+## 🌐 Live Website
+Visit the main website: [https://swiftroutelanka.xyz](https://swiftroutelanka.xyz)
 
 ---
 
-## 📦 Components Needed to Host the Website
+## 📁 Project Structure
 
-- **Domain Name**: The unique address used to access the website.
-- **Web Hosting Service**: Stores the website files and makes them accessible online.
-- **Website Files**: HTML, CSS, images, and other resources.
-- **DNS Configuration**: Connects the domain name to the web hosting service.
-- **Control Panel**: Interface to manage hosting settings and domains.
+This project is organized into multiple repositories representing different subdomains and functionalities of the website:
 
----
-
-## 📊 Hosting Plan Comparison
-
-| Feature            | Hostinger         | GoDaddy           | Bluehost          |
-|-------------------|-------------------|------------------|------------------|
-| Price (monthly)    | $2.99             | $5.99             | $4.95            |
-| Storage            | 50 GB SSD         | 100 GB            | 50 GB SSD        |
-| Free Domain        | Yes (1 year)      | Yes (1 year)      | Yes (1 year)     |
-| SSL Certificate    | Free              | Free              | Free             |
-| Support            | 24/7 Chat         | 24/7 Phone        | 24/7 Chat        |
-
-*Details explained in the assignment documentation.*
+| Subdomain | Repository | Description |
+|----------|------------|-------------|
+| 🌍 Main Site | [Swift-Route-Lanka](https://github.com/nadew-jayaweera/Swift-Route-Lanka) | Main landing page, homepage, navigation, and overall layout |
+| 📍 Places | [places-to-go](https://github.com/nadew-jayaweera/places-to-go) | Travel destinations and tourist attractions |
+| 📦 Packages | [Packages](https://github.com/nadew-jayaweera/Packages) | Tour and transport packages for local and foreign travelers |
+| 📞 Contact | [Contact](https://github.com/nadew-jayaweera/Contact) | Contact form and communication details |
+| 🔐 Login | [login](https://github.com/nadew-jayaweera/login) | Firebase-based login functionality |
+| 📝 Register | [Register](https://github.com/nadew-jayaweera/Register) | Firebase-based user registration module |
 
 ---
 
-## ✅ Selected Plan and Justification
+## 🚀 Features
 
-After comparing multiple hosting services, **GoDaddy** was selected due to its affordability, included SSL certificate, and reliable customer support — ideal for a beginner project.
-
----
-
-## 📚 References
-
-
-- GoDaddy. (2025). *Web Hosting Services*. Available at: https://www.godaddy.com/web-hosting
-
-
-*(Harvard referencing used in the main documentation.)*
+- Responsive and clean UI/UX design
+- Firebase Authentication (Email, Google, Phone Number)
+- Google Maps integration for location awareness
+- Modular subdomain structure for scalability
+- Local and foreign package support
+- Contact form with validation
+- Welcome message with username display upon login
 
 ---
 
-## 🏁 Hack The Box Module
+## 🛠️ Technologies Used
 
-Completed the **Introduction to Web Applications** module on Hack The Box Academy as part of the practical requirement.
-
----
-
-## 📌 Author
-
-- **Name:** Group work
-- **Institution:** NSBM Green University
-- **Module:** Web Hosting
+- HTML, CSS, JavaScript
+- Firebase Authentication
+- GitHub Pages for hosting
+- Google Maps API
+- Responsive design with media queries
 
 ---
 
-## Getting Started
+## 🔗 DNS and Subdomain Setup
 
-To run this project locally, simply clone the repository and open the `index.html` file in your web browser.
+Each subdomain is connected using GitHub Pages with DNS records managed via GoDaddy. For example:
 
-```bash
-# Clone the repository
-git clone https://github.com/nadew-jayaweera/swift-route-lanka.git
+- **Main Domain**: `swiftroutelanka.xyz`
+- **Subdomains**:
+  - `places.swiftroutelanka.xyz`
+  - `contact.swiftroutelanka.xyz`
+  - `packages.swiftroutelanka.xyz`
+  - `login.swiftroutelanka.xyz`
+  - `register.swiftroutelanka.xyz`
 
-# Navigate to the project directory
-cd swift-route-lanka
+---
 
-# Open the main HTML file in your browser
-# (You can right-click index.html and choose 'Open with Browser')
-```
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to fork the repository and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 👤 Authors
+
+- [**Nadew Jayaweera**](https://github.com/nadew-jayaweera)
+- [**Sandamtih Heshan**](https://github.com/Heshan-2006)
+- [**Abhiman**]()
+- [**Chamalsha**]()
+- [**Ishini**]()
+- [**Timani**]()
+
+---
+
+## 📸 Screenshots
+
+> <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/717c4a3e-90af-4f9b-858a-290d3d96569e" />
+
+
+---
+
+
+## ⚙️ Installation
+
+To run the full project locally:
+
+1. **Clone the main repository:**
+   ```bash
+   git clone https://github.com/nadew-jayaweera/Swift-Route-Lanka.git
+   cd Swift-Route-Lanka
+   ```
+2. **Clone all subdomain repositories (optional but recommended):**
+   ```
+   git clone https://github.com/nadew-jayaweera/places-to-go.git
+   git clone https://github.com/nadew-jayaweera/Packages.git
+   git clone https://github.com/nadew-jayaweera/Contact.git
+   git clone https://github.com/nadew-jayaweera/login.git
+   git clone https://github.com/nadew-jayaweera/Register.git
+   ```
+3. **Open index.html from the Swift-Route-Lanka folder in your browser.**
+
+5. (Optional) Use a local web server for smoother navigation:
+   ```
+   npx serve .
+   ```
+
+
 
 
