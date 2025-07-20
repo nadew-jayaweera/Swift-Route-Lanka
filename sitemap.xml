@@ -6,11 +6,28 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://www.swiftroutelanka.xyz/</loc>
   <lastmod>2025-07-13T10:59:27+00:00</lastmod>
 </url>
-
-
+<url>
+  <loc>https://login.swiftroutelanka.xyz/</loc>
+  <lastmod>2025-07-13T10:59:27+00:00</lastmod>
+</url>
+<url>
+  <loc>https://register.swiftroutelanka.xyz/</loc>
+  <lastmod>2025-07-13T10:59:27+00:00</lastmod>
+</url>
+<url>
+  <loc>https://packages.swiftroutelanka.xyz/</loc>
+  <lastmod>2025-07-13T10:59:27+00:00</lastmod>
+</url>
+<url>
+  <loc>https://contact.swiftroutelanka.xyz/</loc>
+  <lastmod>2025-07-13T10:59:27+00:00</lastmod>
+</url>
+<url>
+  <loc>https://places.swiftroutelanka.xyz/</loc>
+  <lastmod>2025-07-13T10:59:27+00:00</lastmod>
+</url>
 </urlset>
