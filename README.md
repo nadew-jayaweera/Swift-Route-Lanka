@@ -46,6 +46,8 @@ This project is organized into multiple repositories representing different subd
 - Google Maps API
 - Responsive design with media queries
 
+> 📖 **For a comprehensive list of all technologies, libraries, and tools used in this project, see [TECHNOLOGIES.md](TECHNOLOGIES.md)**
+
 ---
 
 ## 🔗 DNS and Subdomain Setup
